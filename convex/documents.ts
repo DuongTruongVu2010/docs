@@ -132,7 +132,7 @@ export const updateById = mutation({
     const isOwner = document.ownerId === user.subject;
     const isOrganizationMenber = !!(document.organizationId && document.organizationId === organizationId);
 
-    if (!isOwner || !isOrganizationMenber) {
+    if (!isOwner && !isOrganizationMenber) {
       throw new ConvexError("Unauthorized")
     }
 
